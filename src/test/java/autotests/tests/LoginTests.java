@@ -1,7 +1,5 @@
 package autotests.tests;
 
-import com.codeborne.selenide.Configuration;
-import config.DriverConfig;
 import config.TestDataConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.*;

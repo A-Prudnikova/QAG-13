@@ -2,8 +2,6 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-import java.net.URL;
-
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
         "system:properties",
