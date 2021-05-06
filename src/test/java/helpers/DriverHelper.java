@@ -5,21 +5,27 @@ import config.DriverConfig;
 import org.aeonbits.owner.ConfigFactory;
 
 public class DriverHelper {
-private static final DriverConfig config = ConfigFactory.create(DriverConfig.class, System.getProperties());
+    private static final DriverConfig config = ConfigFactory.create(DriverConfig.class, System.getProperties());
 
-private static boolean isRemote() {
-    return config.isRemote();
-}
-
-public static void setConfig() {
-    Configuration.browser = config.webBrowser();
-    Configuration.browserVersion = config.webBrowserVersion();
-    Configuration.timeout = 10000;
-
-    if (isRemote()) {
-        Configuration.remote = config.webRemoteDriverUrl();
+    public static boolean isRemote() {
+        return !config.webDriverUrl().equals("");
     }
-}
+
+    public static void setBrowserVersion() {
+        Configuration.browserVersion = config.webBrowserVersion();
+    }
+
+//    public static void setBrowser() {
+//        Configuration.browser = config.getBrowser();
+//    }
+
+    public static void setConfig() {
+
+        if (isRemote()) {
+            Configuration.remote = config.webDriverUrl();
+        }
+
+    }
 
 }
 

@@ -2,7 +2,9 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-@Config.LoadPolicy(Config.LoadType.MERGE)
+import static org.aeonbits.owner.Config.LoadType.MERGE;
+
+@Config.LoadPolicy(MERGE)
 @Config.Sources({
         "system:properties",
         "classpath:config/${driver}_driver.properties",
@@ -10,23 +12,18 @@ import org.aeonbits.owner.Config;
 })
 public interface DriverConfig extends Config {
 
-    @Key("web.driver.remote")
-    boolean isRemote();
+//    @Key("webdriver.browser")
+//    String getBrowser();
 
-    @Key("web.driver.browser")
-    String webBrowser();
-
-    @Key("web.driver.browser.version")
+    @Key("webdriver.browser.version")
     String webBrowserVersion();
 
-    @Key("web.driver.remote.url")
-    String webRemoteDriverUrl();
+    @Key("webdriver.url")
+    String webDriverUrl();
 
-    @Key("web.driver.remote.user")
-    String webRemoteDriverUser();
-
-    @Key("web.driver.remote.password")
-    String webRemoteDriverPassword();
-
+//    enum BROWSER {
+//        CHROME,
+//        FIREFOX
+//    }
 
 }
