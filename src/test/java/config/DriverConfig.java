@@ -10,21 +10,16 @@ import static org.aeonbits.owner.Config.LoadType.MERGE;
         "classpath:config/${driver}_driver.properties",
         "classpath:config/remote_driver.properties"
 })
+
 public interface DriverConfig extends Config {
 
     @Key("webdriver.url")
     String webDriverUrl();
 
+    @Key("webdriver.browser")
+    String getBrowser();
+
     @Key("webdriver.browser.version")
     String webBrowserVersion();
-
-    @DefaultValue("CHROME")
-    @Key("webdriver.browser")
-    BROWSER getBrowser();
-
-    enum BROWSER {
-        CHROME,
-        FIREFOX
-    }
 
 }

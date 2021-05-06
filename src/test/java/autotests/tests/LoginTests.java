@@ -17,7 +17,7 @@ public class LoginTests {
     static void setup() {
         DriverHelper.setConfig();
         DriverHelper.setBrowserVersion();
-        //DriverHelper.setBrowser();
+        DriverHelper.setBrowser();
 
     }
 
