@@ -2,7 +2,11 @@ package helpers;
 
 import com.codeborne.selenide.Configuration;
 import config.DriverConfig;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 
 public class DriverHelper {
     private static final DriverConfig config = ConfigFactory.create(DriverConfig.class, System.getProperties());
@@ -15,9 +19,12 @@ public class DriverHelper {
         Configuration.browserVersion = config.webBrowserVersion();
     }
 
-//    public static void setBrowser() {
-//        Configuration.browser = config.getBrowser();
-//    }
+    public static void setBrowser() {
+        addListener("AllureSelenide", new AllureSelenide());
+        Configuration.browser = config.getBrowser().toString();
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        Configuration.browserCapabilities = capabilities;
+    }
 
     public static void setConfig() {
 

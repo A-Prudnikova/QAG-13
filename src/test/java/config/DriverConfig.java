@@ -12,8 +12,9 @@ import static org.aeonbits.owner.Config.LoadType.MERGE;
 })
 public interface DriverConfig extends Config {
 
-//    @Key("webdriver.browser")
-//    String getBrowser();
+    @DefaultValue("CHROME")
+    @Key("webdriver.browser")
+    BROWSER getBrowser();
 
     @Key("webdriver.browser.version")
     String webBrowserVersion();
@@ -21,9 +22,9 @@ public interface DriverConfig extends Config {
     @Key("webdriver.url")
     String webDriverUrl();
 
-//    enum BROWSER {
-//        CHROME,
-//        FIREFOX
-//    }
+    enum BROWSER {
+        CHROME,
+        FIREFOX
+    }
 
 }
