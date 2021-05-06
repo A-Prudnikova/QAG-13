@@ -15,6 +15,14 @@ public class DriverHelper {
         return !config.webDriverUrl().equals("");
     }
 
+    public static void setConfig() {
+
+        if (isRemote()) {
+            Configuration.remote = config.webDriverUrl();
+        }
+
+    }
+
     public static void setBrowserVersion() {
         Configuration.browserVersion = config.webBrowserVersion();
     }
@@ -24,14 +32,6 @@ public class DriverHelper {
         Configuration.browser = config.getBrowser().toString();
         DesiredCapabilities capabilities = new DesiredCapabilities();
         Configuration.browserCapabilities = capabilities;
-    }
-
-    public static void setConfig() {
-
-        if (isRemote()) {
-            Configuration.remote = config.webDriverUrl();
-        }
-
     }
 
 }
